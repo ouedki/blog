@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Show</title>
+</head>
+<body>
+<div  th:each="post : ${posts}">
+    <h1 th:text="${post.title}"></h1>
+    <h4 th:text="${post.body}"></h4>
+    <a th:href="@{'/posts/' + ${post.id}}">View Post</a>
+</div>
+
+</body>
+</html>
