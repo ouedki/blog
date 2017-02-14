@@ -1,17 +1,30 @@
 package com.codeup.models;
 
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="posts")
 public class Post {
-    private int id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column(nullable = false)
     private String title;
+    @Column(nullable = false, length = 2000)
     private String body;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    User user;
 
     public Post(String title, String body) {
         this.title = title;
         this.body = body;
     }
 
-    public Post(int id, String title, String body) {
+    public Post(long id, String title, String body) {
         this.id = id;
         this.title = title;
         this.body = body;
@@ -36,11 +49,19 @@ public class Post {
         this.body = body;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

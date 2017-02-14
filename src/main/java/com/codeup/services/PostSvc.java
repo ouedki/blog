@@ -1,6 +1,7 @@
 package com.codeup.services;
 
 import com.codeup.models.Post;
+import com.codeup.models.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,6 +21,9 @@ public class PostSvc {
     }
 
     public Post save (Post post) {
+        User user = new User();
+        user.setId(1);
+        post.setUser(user);
         posts.add(post);
         return post;
     }

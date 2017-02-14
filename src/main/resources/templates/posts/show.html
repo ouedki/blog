@@ -2,13 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
+    <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css' />
     <title>Show</title>
 </head>
 <body>
-
+<nav th:include="fragments/navbar :: navbar"></nav>
 <div  th:object="${posts}">
     <h1 th:text="*{title}"></h1>
     <h4 th:text="*{body}"></h4>
+    <a class="btn btn-info" th:href="@{'/posts/' + ${posts.id} + '/edit'}" style="display: inline-block">Edit Post</a>
+    <form th:action="${'/posts/delete'}" th:method="post" style="display:inline-block">
+        <input type="hidden" name="id" th:value="${posts.id}" />
+        <button class="btn btn-danger">Delete</button>
+    </form>
 </div>
 </body>
 </html>
