@@ -7,12 +7,19 @@
 <body>
 <nav th:include="fragments/navbar :: navbar"></nav>
 <h1>Create POst</h1>
-<form th:action="@{/posts/create}" th:method="post" th:object="${post}" >
+<form th:action="@{/posts/create}" th:method="post" th:object="${post}" enctype="multipart/form-data" >
     <Label id ="title">Title</Label>
     <input type="text" name="title" th:field="*{title}" />
+    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" />
 
     <Label id ="body">Body</Label>
     <input type="text" name="body" th:field="*{body}"/>
+    <p th:if="${#fields.hasErrors('body')}" th:errors="*{body}" />
+
+    <div>
+        <label for="image_file">Upload a file!</label>
+        <input id="image_file" name="image_file" type="file" />
+    </div>
 
     <input type="submit" value="Save" />
 </form>

@@ -13,6 +13,22 @@ public class UserRole {
     @Column(name = "user_id")
     private long userId;
 
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Column(name = "role")
     private String role;
 }

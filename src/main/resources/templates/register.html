@@ -11,11 +11,21 @@
 <form th:action="@{/register}" th:method="post" th:object="${user}">
     <label for="username">Username</label>
     <input th:field="*{userName}" id="username" />
+    <p th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" />
     <label for="email">Email</label>
     <input th:field="*{email}" id="email" />
+    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" />
     <label for="password">Password</label>
     <input th:field="*{password}" id="password" />
+    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" />
+
+    <div class="form-group">
+        <label for="password_confirm">Confirm Your Password</label>
+        <input type="password" id="password_confirm" name="password_confirm" class="form-control"/>
+    </div>
+
     <input type="submit" value="Register" />
+    <input type="hidden" th:attr="name=${_csrf.parameterName},value=${_csrf.token}"/>
 </form>
 </body>
 </html>

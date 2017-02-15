@@ -6,25 +6,32 @@
     <title>Show</title>
 </head>
 <body>
-
+<div class="container">
 <h1 style="text-align: center">All Posts</h1><br/>
-    <table class="table table-inverse">
-        <tr>
-            <th>ID #</th>
-            <th>Title</th>
-            <th>Body</th>
-            <th>Creator</th>
-            <th>View</th>
-        </tr>
+    <!--<table class="table table-inverse">-->
+        <!--<tr>-->
+            <!--<th>ID #</th>-->
+            <!--<th>Title</th>-->
+            <!--<th>Body</th>-->
+            <!--<th>Creator</th>-->
+            <!--<th>View</th>-->
+        <!--</tr>-->
 
-        <tr th:each="post : ${posts}">
-            <td th:text="${post.id}"></td>
-            <td th:text="${post.title}"></td>
-            <td th:text="${post.body}"></td>
-            <!--<td th:text="'Created by: ' + ${post.user.userName}"></td>-->
-            <td><a class="btn btn-success" th:href="@{'/posts/' + ${post.id}}">View Post</a></td>
-        </tr>
-    </table>
-
+        <!--<tr th:each="post : ${posts}">-->
+            <!--<td th:text="${post.id}"></td>-->
+            <!--<td th:text="${post.title}"></td>-->
+            <!--<td th:text="${post.body}"></td>-->
+            <!--<td>Created by: <span th:text="${post.user.userName} "></span></td>-->
+            <!--<td><a class="btn btn-success" th:href="@{'/posts/' + ${post.id}}">View Post</a></td>-->
+        <!--</tr>-->
+    <!--</table>-->
+    <div id="load-posts"></div>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"
+></script>
+<script src="/scripts/posts-list.js"> </script>
 </body>
 </html>
